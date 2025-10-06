@@ -1,6 +1,10 @@
 import { Page } from '@playwright/test';
-export class ContactPage {
-  constructor(private page: Page) {}
+import { BasePage } from './BasePage';
+
+export class ContactPage extends BasePage {
+  constructor( page: Page) {
+    super(page);
+  }
   async navigate() {
     await this.page.goto('https://jupiter.cloud.planittesting.com/#/contact');
   }
