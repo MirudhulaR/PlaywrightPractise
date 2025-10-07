@@ -14,4 +14,5 @@ export class HomePage extends BasePage {
     await this.page.click('a[href="#/contact"]');
   }
 
+
 }

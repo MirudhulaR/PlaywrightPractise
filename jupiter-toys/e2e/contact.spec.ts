@@ -9,6 +9,16 @@ test('Contact form submission', async ({ page }) => {
   await page.goto('https://jupiter.cloud.planittesting.com/#/contact');
 
   // Fill in the contact form
+  await contactPage.fillContactForm(' ', ' ', ' ', ' ', ' ');
+
+
+  // Check for validation errors
+  expect(await contactPage.checkTextIsVisible('Forename is required')).toBe(true);
+  expect(await contactPage.checkTextIsVisible('Email is required')).toBe(true);
+  expect(await contactPage.checkTextIsVisible('Message is required')).toBe(true);
+
+
+  // Fill in the contact form
   await contactPage.fillContactForm('John', 'Doe', 'john.doe@example.com', '1234567890', 'This is a test message.');
 
   // Submit the form

@@ -6,4 +6,9 @@ export class BasePage {
   async getTitle() {
     return this.page.title();
   }
+   async checkTextIsVisible(message: string) {
+    return this.page.getByText(message).isVisible();
+  }
+  
+
 }
